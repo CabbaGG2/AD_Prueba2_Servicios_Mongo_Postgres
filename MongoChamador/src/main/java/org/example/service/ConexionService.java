@@ -155,6 +155,17 @@ public class ConexionService {
         }
     }
 
+    public boolean deleteSagaById(Long id) {
+        try {
+            String url = POSTGRES_BASE_URL_SAGAS + "/" + id;
+            restTemplate.exchange(url, HttpMethod.DELETE, null, Void.class);
+            return true;
+        } catch (HttpClientErrorException e) {
+            System.out.println("No se pudo eliminar la saga con id " + id + ": " + e.getMessage());
+            return false;
+        }
+    }
+
     public boolean deleteAllPersonaxes() {
         try {
             String url = POSTGRES_BASE_URL_XOGADORES + "/borrarTodo";
