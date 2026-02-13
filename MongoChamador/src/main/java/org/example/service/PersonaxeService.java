@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Personaxe;
+import org.example.repository.PersonaxeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class PersonaxeService {
 
     @Autowired
-    private PersonaxeService personaxeRepo;
+    private PersonaxeRepository personaxeRepo;
 
     public List<Personaxe> findAll(){
         return personaxeRepo.findAll();

@@ -55,7 +55,7 @@ public class ConexionMongoService {
             String url = MONGO_BASE_URL_SAGA;
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<Saga> request = new HttpEntity<Saga>(saga, headers);
+            HttpEntity<Saga> request = new HttpEntity<>(saga, headers);
 
             ResponseEntity<Saga> response = restTemplate.exchange(
                     url, HttpMethod.POST, request, Saga.class

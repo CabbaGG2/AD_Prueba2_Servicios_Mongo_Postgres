@@ -5,7 +5,7 @@ import java.util.List;
 public class Saga {
 
 
-    private Long id;
+    private Long idsaga;
 
     private String titulo;
     private int parte;
@@ -14,12 +14,12 @@ public class Saga {
 
     private List<Personaxe> personaxes;
 
-    public Long getId() {
-        return id;
+    public Long getIdsaga() {
+        return idsaga;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdsaga(Long idsaga) {
+        this.idsaga = idsaga;
     }
 
     public String getTitulo() {
