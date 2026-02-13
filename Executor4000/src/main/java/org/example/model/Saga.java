@@ -1,9 +1,11 @@
 package org.example.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 public class Saga {
-
 
     private Long idsaga;
 
@@ -26,24 +28,16 @@ public class Saga {
         return titulo;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public int getParte() {
         return parte;
     }
 
     public void setParte(int parte) {
         this.parte = parte;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo= titulo;
-    }
-
-    public String getAmbientacion() {
-        return ambientacion;
-    }
-
-    public void setAmbientacion(String ambientacion) {
-        this.ambientacion = ambientacion;
     }
 
     public int getAnoinicio() {
@@ -54,11 +48,19 @@ public class Saga {
         this.anoinicio = anoinicio;
     }
 
+    public String getAmbientacion() {
+        return ambientacion;
+    }
+
+    public void setAmbientacion(String ambientacion) {
+        this.ambientacion = ambientacion;
+    }
+
     public List<Personaxe> getPersonaxes() {
         return personaxes;
     }
 
     public void setPersonaxes(List<Personaxe> personaxes) {
         this.personaxes = personaxes;
-    }
-}
+    }}
+

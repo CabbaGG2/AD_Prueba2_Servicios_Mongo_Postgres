@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.example.model.LosJojos;
 import org.example.model.Personaxe;
 import org.example.model.Saga;
 import org.example.service.ConexionMongoService;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class Secuencia {
@@ -71,5 +73,25 @@ public class Secuencia {
 
         System.out.println("Enviando a Mongo saga: " + saga3.getTitulo() + " con ID: " + saga3.getIdsaga());
         conexionMongoService.crearSaga(saga3);
+
+        List<Saga> sagas = conexionPostgresService.buscarSagas();
+        for(Saga s: sagas){
+            System.out.println(s.getIdsaga() +  "creamos la saga: " + s.getTitulo() + " en Mongo.");
+            conexionMongoService.crearSaga(s);
+        }
+
+        System.out.println("Creamos un objeto jojos");
+        LosJojos losJojos = new LosJojos();
+
+        System.out.println("seteamos sagas en los jojos");
+        losJojos.setSagas(sagas);
+
+        System.out.println(losJojos);
+
+        System.out.println("Creamos un documento 'jojos' en Mongo.");
+
+        LosJojos j = conexionMongoService.crearJojos(new LosJojos());
+        //LosJojos j = conexionMongoService.crearJojos(losJojos);
+        System.out.println(j);
     }
 }

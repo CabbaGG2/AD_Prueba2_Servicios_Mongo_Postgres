@@ -36,17 +36,10 @@ public class RestPersonaxes {
 
     @PostMapping
     public ResponseEntity<Personaxe> create(@RequestBody Personaxe personaxe) {
-        if (personaxe.getSaga() != null && personaxe.getSaga().getIdsaga() != null) {
-            Saga eq = sagaService.findById(personaxe.getSaga().getIdsaga())
-                    .orElse(null);
-            if (eq == null) {
-                return ResponseEntity.badRequest().build();
-            }
-            personaxe.setSaga(eq);
-        }
         Personaxe gardado = personaxeService.save(personaxe);
         return ResponseEntity.ok(gardado);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         if (!personaxeService.existsById(id)) {

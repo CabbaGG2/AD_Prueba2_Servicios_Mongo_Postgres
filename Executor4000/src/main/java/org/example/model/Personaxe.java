@@ -1,20 +1,25 @@
 package org.example.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 
 public class Personaxe {
 
-    private Long id;
+    private Long idpersonaxe;
+
     private String nome;
+
     private String stand;
 
     private Saga saga;
 
-    public Long getId() {
-        return id;
+    public Long getIdpersonaxe() {
+        return idpersonaxe;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdpersonaxe(Long idpersonaxe) {
+        this.idpersonaxe = idpersonaxe;
     }
 
     public String getNome() {
@@ -40,4 +45,5 @@ public class Personaxe {
     public void setSaga(Saga saga) {
         this.saga = saga;
     }
+
 }

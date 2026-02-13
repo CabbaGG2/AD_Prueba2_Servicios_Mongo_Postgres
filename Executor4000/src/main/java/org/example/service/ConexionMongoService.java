@@ -105,8 +105,8 @@ public class ConexionMongoService {
             );
             return response.getBody();
         } catch (HttpClientErrorException e) {
-            System.out.println("Error al crear los jojos en Mongo: " + e.getMessage());
-            return null;
+            System.out.println("Error intentando ingresar una saga en Mongo: " + e.getMessage());
+            return  null;
         }
     }
 
