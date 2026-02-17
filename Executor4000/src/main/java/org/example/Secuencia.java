@@ -52,7 +52,7 @@ public class Secuencia {
 
         System.out.println("Creamos la saga en la base de datos de Postgres");
 
-        //saga = conexionPostgresService.crearSaga(saga);
+        saga = conexionPostgresService.crearSaga(saga);
 
         System.out.println("Traemos de Postgres una saga por ID");
 
@@ -92,6 +92,21 @@ public class Secuencia {
 
         //LosJojos j = conexionMongoService.crearJojos(new LosJojos());
         LosJojos j = conexionMongoService.crearJojos(losJojos);
-        System.out.println(j);
+
+        List<LosJojos> listaJojos = conexionMongoService.buscarLosjojos();
+
+        List<Saga> listaSagas = conexionMongoService.buscarSagas();
+
+        System.out.println("Exportamos a json las listas de jojos y sagas");
+
+        //jsonService.exportarLosJojosJson(listaJojos);
+        //jsonService.exportarSagasJson(listaSagas);
+
+        System.out.println("Eliminamos los datos guardados");
+
+        conexionPostgresService.borrarSaga(saga.getIdsaga());
+        conexionMongoService.borrarSaga(saga.getIdsaga());
+
+
     }
 }
