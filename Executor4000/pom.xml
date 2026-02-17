@@ -54,7 +54,7 @@
                 <version>2.2.1</version>
                 <executions>
                     <execution>
-                        <idpersonaxe>generate-docs</idpersonaxe>
+                        <id>generate-docs</id>
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>process-asciidoc</goal>

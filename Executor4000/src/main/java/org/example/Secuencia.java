@@ -90,8 +90,8 @@ public class Secuencia {
 
         System.out.println("Creamos un documento 'jojos' en Mongo.");
 
-        LosJojos j = conexionMongoService.crearJojos(new LosJojos());
-        //LosJojos j = conexionMongoService.crearJojos(losJojos);
+        //LosJojos j = conexionMongoService.crearJojos(new LosJojos());
+        LosJojos j = conexionMongoService.crearJojos(losJojos);
         System.out.println(j);
     }
 }
